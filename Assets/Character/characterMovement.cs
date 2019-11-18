@@ -38,7 +38,7 @@ public class characterMovement : MonoBehaviour
     ////////////////////////////////////////////////////
 
     private void initialization(){
-        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight,1);
+        this.defaultCharacterSize();
     }
     //Move Forward
     private bool onEnterForwordKeys(){
