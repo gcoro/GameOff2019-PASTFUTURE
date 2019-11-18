@@ -13,26 +13,31 @@ public class characterMovement : MonoBehaviour
     public float characterHeight = 2;
     public float characterWidth = 1;
 
+    public bool isGrounded;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         this.initialization();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         this.defaultCharacterSize();
-        if(this.onEnterForwordKeys())
+        if(this.onEnterForwardKeys())
             this.moveForward();
-        if(this.onEnterBackwordKeys())
-            this.moveBackword();
-        if(this.onEnterJumpKeys())
+        if(this.onEnterBackwardKeys())
+            this.moveBackward();
+        if(this.onEnterJumpKeys() && this.isGrounded)
             this.jump();
         if(this.onEnterCrouchKeys())
             this.crouch();
+        if(isGrounded == false)
+            this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
     }
 
+    void OnCollisionEnter(Collision collision){
+        if (collision.gameObject.tag == ("Ground") && this.isGrounded == false)
+            this.isGrounded = true; 
+    }
     ////////////////////////////////////////////////////
     //////////////////// UTILITY FUNCTION //////////////
     ////////////////////////////////////////////////////
@@ -41,27 +46,28 @@ public class characterMovement : MonoBehaviour
         this.defaultCharacterSize();
     }
     //Move Forward
-    private bool onEnterForwordKeys(){
+    private bool onEnterForwardKeys(){
         return Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow);
     }
     private void moveForward(){
         this.movementDirection.AddForce(movementsForce * Time.deltaTime,0,0);
     }
 
-    //Move Backword
-    private bool onEnterBackwordKeys(){
+    //Move Backward
+    private bool onEnterBackwardKeys(){
         return Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow);
     }
-    private void moveBackword(){
+    private void moveBackward(){
         this.movementDirection.AddForce(-movementsForce * Time.deltaTime,0,0);
     }
 
     //Jump
     private bool onEnterJumpKeys(){
-        return Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow);
+        return (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow) && this.isGrounded);
     }
     private void jump(){
-        this.movementDirection.AddForce(0,jumpForce * Time.deltaTime,0);
+        this.movementDirection.AddForce(new Vector3(0,jumpForce * Time.deltaTime,0), ForceMode.Impulse);
+        this.isGrounded = false;
     }
 
     //Crouch
@@ -72,6 +78,8 @@ public class characterMovement : MonoBehaviour
         float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
         this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
     }
+
+    // Default settings
     private void defaultCharacterSize(){
         this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight,1);
     }

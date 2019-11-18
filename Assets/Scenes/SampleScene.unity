@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 1144900819}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +302,7 @@ GameObject:
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -408,7 +408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementDirection: {fileID: 1820687294}
   movementsForce: 1000
-  jumpForce: 5000
-  objectProperty: {fileID: 1820687293}
+  jumpForce: 750
+  characterProperty: {fileID: 1820687293}
   characterHeight: 2.5
   characterWidth: 1
+  isGrounded: 0
