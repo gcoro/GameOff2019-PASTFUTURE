@@ -26,10 +26,11 @@ public class characterMovement : MonoBehaviour
             this.moveForward();
         if(this.onEnterBackwardKeys())
             this.moveBackward();
-        if(this.onEnterJumpKeys() && this.isGrounded)
+        if(this.onEnterJumpKeys())
             this.jump();
         if(this.onEnterCrouchKeys())
             this.crouch();
+
         if(isGrounded == false)
             this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
     }
@@ -72,11 +73,12 @@ public class characterMovement : MonoBehaviour
 
     //Crouch
     private bool onEnterCrouchKeys(){
-        return Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow);
+        return (Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow) && this.isGrounded);
     }
     private void crouch(){
         float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
         this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
+        this.characterProperty.position = new Vector3(this.characterProperty.position.x, crouchRatio, this.characterProperty.position.z);
     }
 
     // Default settings
