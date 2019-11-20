@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movimento_bg : MonoBehaviour
+public class bg_movement : MonoBehaviour
 {
+
     private UnityEngine.Transform lastVisibleChildren;
+
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    void moveObects(UnityEngine.Transform current, UnityEngine.Transform next)
-    {
-        next.transform.position = current.transform.position + new Vector3(current.GetComponent<Renderer>().bounds.size.x -5, 0, 0);
+        
     }
 
     // Update is called once per frame
@@ -41,9 +38,14 @@ public class movimento_bg : MonoBehaviour
             if (!lastVisibleChildren || visibleChildrens[0].gameObject.name != lastVisibleChildren.gameObject.name)
             {
                 lastVisibleChildren = visibleChildrens[0];
-                moveObects(lastVisibleChildren, notVisibleChildrens[0]);
+                moveObjects(lastVisibleChildren, notVisibleChildrens[0]);
             }
         }
+    }
 
+    void moveObjects(UnityEngine.Transform current, UnityEngine.Transform next)
+    {
+        next.transform.position = current.transform.position + new Vector3(current.GetComponent<Renderer>().bounds.size.x - 5, 0, 0);
     }
 }
+
