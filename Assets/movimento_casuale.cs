@@ -38,7 +38,6 @@ public class movimento_casuale : MonoBehaviour
             {
                 lastVisibleChildren = visibleChildrens[0];
                 int rInt = Random.Range(0, notVisibleChildrens.Count);
-                Debug.Log(notVisibleChildrens[rInt].gameObject.name);
                 moveObects(lastVisibleChildren, notVisibleChildrens[rInt]);
             }
         }
