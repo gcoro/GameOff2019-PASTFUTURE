@@ -45,7 +45,7 @@ public class bg_movement : MonoBehaviour
 
     void moveObjects(UnityEngine.Transform current, UnityEngine.Transform next)
     {
-        next.transform.position = current.transform.position + new Vector3(current.GetComponent<Renderer>().bounds.size.x - 5, 0, 0);
+        next.transform.position = current.transform.position + new Vector3(current.GetComponent<Renderer>().bounds.size.x, 0, 0);
     }
 }
 
