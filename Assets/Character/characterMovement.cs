@@ -34,7 +34,6 @@ public class characterMovement : MonoBehaviour
         if(isGrounded == false)
             this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
     }
-
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == ("Ground") && this.isGrounded == false)
             this.isGrounded = true; 
@@ -77,8 +76,9 @@ public class characterMovement : MonoBehaviour
     }
     private void crouch(){
         float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
+        float crouchPosition = (float)Math.Round(this.characterProperty.position.y * 2) / 4;
         this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
-       // this.characterProperty.position = new Vector3(this.characterProperty.position.x, crouchRatio, this.characterProperty.position.z);
+        //this.characterProperty.position = new Vector3(this.characterProperty.position.x, this.characterProperty.position.y - crouchPosition, this.characterProperty.position.z);
     }
 
     // Default settings
