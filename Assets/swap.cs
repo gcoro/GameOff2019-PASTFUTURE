@@ -7,7 +7,7 @@ public class swap : MonoBehaviour
 
     private bool isKeyPressed = false;
     private float lastTime = 0;
-    private float delay = 0f;
+    private float delay = 2f;
     // Start is called before the first frame update
     void Start()
     {
