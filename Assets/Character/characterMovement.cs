@@ -9,8 +9,7 @@ public class characterMovement : MonoBehaviour
     public float movementsForce = 0;
     public float jumpForce = 0;
 
-    public Transform characterProperty;
-    public float characterHeight = 2;
+    public float characterHeight = 1;
     public float characterWidth = 1;
 
     public bool isGrounded;
@@ -20,8 +19,7 @@ public class characterMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate(){
-        this.defaultCharacterSize();
+    void Update(){
         if(this.onEnterForwardKeys())
             this.moveForward();
         if(this.onEnterBackwardKeys())
@@ -30,8 +28,10 @@ public class characterMovement : MonoBehaviour
             this.jump();
         if(this.onEnterCrouchKeys())
             this.crouch();
+        else
+            this.defaultCharacterSize();
 
-        if(isGrounded == false)
+        if (isGrounded == false)
             this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
     }
     void OnCollisionEnter(Collision collision){
@@ -76,13 +76,15 @@ public class characterMovement : MonoBehaviour
     }
     private void crouch(){
         float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
-        float crouchPosition = (float)Math.Round(this.characterProperty.position.y * 2) / 4;
-        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
-        //this.characterProperty.position = new Vector3(this.characterProperty.position.x, this.characterProperty.position.y - crouchPosition, this.characterProperty.position.z);
+        transform.parent.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
     }
 
     // Default settings
     private void defaultCharacterSize(){
-        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight,1);
+        Vector3 vector = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        transform.parent.localScale = new Vector3(this.characterWidth, this.characterHeight ,1);
+		
+        if (this.isGrounded)
+			transform.position = vector;
     }
 }
