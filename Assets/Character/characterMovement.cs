@@ -9,7 +9,8 @@ public class characterMovement : MonoBehaviour
     public float movementsForce = 0;
     public float jumpForce = 0;
 
-    public float characterHeight = 1;
+    public Transform characterProperty;
+    public float characterHeight = 2;
     public float characterWidth = 1;
 
     public Animator girlAnimator;
@@ -21,7 +22,8 @@ public class characterMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
+        this.defaultCharacterSize();
         if(this.onEnterForwardKeys())
             this.moveForward();
         if(this.onEnterBackwardKeys())
@@ -30,12 +32,11 @@ public class characterMovement : MonoBehaviour
             this.jump();
         if(this.onEnterCrouchKeys())
             this.crouch();
-        else
-            this.defaultCharacterSize();
 
-        if (isGrounded == false)
+        if(isGrounded == false)
             this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
     }
+
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == ("Ground") && this.isGrounded == false)
             this.isGrounded = true; 
@@ -87,10 +88,6 @@ public class characterMovement : MonoBehaviour
 
     // Default settings
     private void defaultCharacterSize(){
-        Vector3 vector = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        transform.parent.localScale = new Vector3(this.characterWidth, this.characterHeight ,1);
-		
-        if (this.isGrounded)
-			transform.position = vector;
+        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight,1);
     }
 }
