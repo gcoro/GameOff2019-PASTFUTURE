@@ -12,6 +12,8 @@ public class characterMovement : MonoBehaviour
     public float characterHeight = 1;
     public float characterWidth = 1;
 
+    public Animator girlAnimator;
+
     public bool isGrounded;
     // Start is called before the first frame update
     void Start(){
@@ -37,6 +39,7 @@ public class characterMovement : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == ("Ground") && this.isGrounded == false)
             this.isGrounded = true; 
+        	girlAnimator.SetBool("jumped",false);
     }
     ////////////////////////////////////////////////////
     //////////////////// UTILITY FUNCTION //////////////
@@ -68,6 +71,7 @@ public class characterMovement : MonoBehaviour
     private void jump(){
         this.movementDirection.AddForce(new Vector3(0,jumpForce * Time.deltaTime,0), ForceMode.Impulse);
         this.isGrounded = false;
+        girlAnimator.SetBool("jumped",true);
     }
 
     //Crouch
@@ -76,7 +80,9 @@ public class characterMovement : MonoBehaviour
     }
     private void crouch(){
         float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
-        transform.parent.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
+        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
+        girlAnimator.SetBool("crouch",true);
+       // this.characterProperty.position = new Vector3(this.characterProperty.position.x, crouchRatio, this.characterProperty.position.z);
     }
 
     // Default settings
