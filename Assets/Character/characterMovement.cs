@@ -24,10 +24,10 @@ public class characterMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate(){
         this.defaultCharacterSize();
-        if(this.onEnterForwardKeys())
-            this.moveForward();
-        if(this.onEnterBackwardKeys())
-            this.moveBackward();
+        //if(this.onEnterForwardKeys())
+        //    this.moveForward();
+        //if(this.onEnterBackwardKeys())
+        //    this.moveBackward();
         if(this.onEnterJumpKeys())
             this.jump();
         if(this.onEnterCrouchKeys())
@@ -67,12 +67,15 @@ public class characterMovement : MonoBehaviour
 
     //Jump
     private bool onEnterJumpKeys(){
-        return (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow) && this.isGrounded);
+        return (Input.GetKey("w") || Input.GetKey(KeyCode.UpArrow) && this.isGrounded==true);
     }
     private void jump(){
-        this.movementDirection.AddForce(new Vector3(0,jumpForce * Time.deltaTime,0), ForceMode.Impulse);
-        this.isGrounded = false;
-        girlAnimator.SetBool("jumped",true);
+        if (isGrounded)
+        {
+            this.movementDirection.AddForce(new Vector3(0, jumpForce * Time.deltaTime, 0), ForceMode.Impulse);
+            this.isGrounded = false;
+            girlAnimator.SetBool("jumped", true);
+        }
     }
 
     //Crouch
