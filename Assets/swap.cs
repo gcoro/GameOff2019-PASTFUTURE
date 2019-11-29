@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class swap : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class swap : MonoBehaviour
     private float lastTime = 0;
     private float delay = 2f;
     private bool isDead = false;
-    public GameObject replacementPlatform;
+    public UnityEvent swapHappened = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class swap : MonoBehaviour
                 transform.position = transform.position + new Vector3(0, 0, +89);
             }
             this.lastTime = Time.time;
+            swapHappened.Invoke();
             this.isKeyPressed = true;
         }
         else if (isKeyPressed)
@@ -46,6 +48,7 @@ public class swap : MonoBehaviour
                 transform.position = transform.position + new Vector3(0, 0, -89);
             }
             this.lastTime = Time.time;
+            swapHappened.Invoke();
             this.isKeyPressed = false;
         }
     }

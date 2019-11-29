@@ -185,6 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &52344142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &455236383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,6 +2623,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &825378481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3682,6 +3691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1122950882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3789,6 +3801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1150951966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1251915068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1263612098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,6 +5872,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPlatform: {fileID: 0}
+  swapHappended:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1865068814 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100026, guid: f97c1fe3ea5dc7641adb6d91427a5c77,
@@ -6041,7 +6065,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 690208995}
-        m_MethodName: dispatchEvent
+        m_MethodName: dispatchCollisionEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

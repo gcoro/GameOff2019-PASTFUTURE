@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class timer : MonoBehaviour
 {
     public float startTime = 0;
-    public float duration = 4;
+    public float duration = 5;
     private bool isDead = false;
 
     public Slider slider;

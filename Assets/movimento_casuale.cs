@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class movimento_casuale : MonoBehaviour
 {
+    public GameObject replacementPlatform;
     private UnityEngine.Transform lastVisibleChildren;
     // Start is called before the first frame update
     void Start()
@@ -42,5 +43,16 @@ public class movimento_casuale : MonoBehaviour
             }
         }
 
+    }
+
+    void swapDetected()
+    {
+        foreach (Transform child in transform)
+        {
+            foreach (Transform childChild in child)
+            {
+                childChild.gameObject.SetActive(!childChild.gameObject.active);
+            }
+        }
     }
 }
