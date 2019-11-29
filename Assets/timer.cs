@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class timer : MonoBehaviour
 {
     public float startTime = 0;
-    public float duration = 2;
+    public float duration = 4;
+    private bool isDead = false;
 
     public Slider slider;
 
@@ -20,7 +21,9 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") && ((startTime + duration) < Time.time || startTime == 0))
+        if (isDead)
+            return;
+        if (Input.GetKeyDown("e") && ((startTime + duration) < Time.time || startTime == 0) )
         {
             startTime = Time.time;
             slider.value = 1;
@@ -34,5 +37,11 @@ public class timer : MonoBehaviour
         {
             slider.value =1;
         }
+    }
+
+    public void collisionDetected()
+    {
+        Debug.Log("Dead swap");
+        isDead = true;
     }
 }

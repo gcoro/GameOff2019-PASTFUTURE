@@ -8,6 +8,9 @@ public class swap : MonoBehaviour
     private bool isKeyPressed = false;
     private float lastTime = 0;
     private float delay = 2f;
+    private bool isDead = false;
+    public GameObject replacementPlatform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,34 +20,39 @@ public class swap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.lastTime != 0 && Time.time - this.lastTime < delay)
+        if (this.lastTime != 0 && Time.time - this.lastTime < delay || isDead)
             return;
-        if (Input.GetKeyDown("e")){
-            if (!this.isKeyPressed)
+        if (!this.isKeyPressed && Input.GetKeyDown("e"))
+        {
+            if (gameObject.name.Contains("_alternative"))
             {
-                if (gameObject.name.Contains("_alternative"))
-                {
-                    transform.position = transform.position + new Vector3(0, 0, -89);
-                }
-                else
-                {
-                    transform.position = transform.position + new Vector3(0, 0, +89);
-                }
-                this.lastTime = Time.time;
-                this.isKeyPressed = true;
-            } else {
-                if (gameObject.name.Contains("_alternative"))
-                {
-                    transform.position = transform.position + new Vector3(0, 0, +89);
-                }
-                else
-                {
-                    transform.position = transform.position + new Vector3(0, 0, -89);
-                }
-                this.lastTime = Time.time;
-                this.isKeyPressed = false;
-
+                transform.position = transform.position + new Vector3(0, 0, -89);
             }
+            else
+            {
+                transform.position = transform.position + new Vector3(0, 0, +89);
+            }
+            this.lastTime = Time.time;
+            this.isKeyPressed = true;
         }
+        else if (isKeyPressed)
+        {
+            if (gameObject.name.Contains("_alternative"))
+            {
+                transform.position = transform.position + new Vector3(0, 0, +89);
+            }
+            else
+            {
+                transform.position = transform.position + new Vector3(0, 0, -89);
+            }
+            this.lastTime = Time.time;
+            this.isKeyPressed = false;
+        }
+    }
+
+    public void collisionDetected()
+    {
+        Debug.Log("Dead swap");
+        isDead = true;
     }
 }

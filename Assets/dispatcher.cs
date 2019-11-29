@@ -16,5 +16,5 @@ public class dispatcher : MonoBehaviour
         
     }
 
-    public void dispatchEvent() => BroadcastMessage("collisionDetected");
+   public void dispatchEvent() => BroadcastMessage("collisionDetected");
 }
