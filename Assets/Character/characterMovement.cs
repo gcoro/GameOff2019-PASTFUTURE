@@ -10,10 +10,11 @@ public class characterMovement : MonoBehaviour
     public float jumpForce = 0;
 
     public Transform characterProperty;
-    public float characterHeight = 2;
+    public float characterHeight = 2.5F;
     public float characterWidth = 1;
 
     public Animator girlAnimator;
+    public GameObject box_collider;
 
     public bool isGrounded;
     // Start is called before the first frame update
@@ -32,6 +33,11 @@ public class characterMovement : MonoBehaviour
             this.jump();
         if(this.onEnterCrouchKeys())
             this.crouch();
+        else {
+        	girlAnimator.SetBool("crouch",false);
+	        this.characterProperty.localScale = new Vector3(1,2.5F,1);
+	        //box_collider
+        }
 
         if(isGrounded == false)
             this.movementDirection.AddForce(0,-movementsForce * Time.deltaTime,0);
@@ -83,10 +89,13 @@ public class characterMovement : MonoBehaviour
         return (Input.GetKey("s") || Input.GetKey(KeyCode.DownArrow) && this.isGrounded);
     }
     private void crouch(){
-        float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
-        this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
+        //float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
+        //this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight - crouchRatio ,1);
+        //float crouchRatio = (float)Math.Round(this.characterHeight * 2) / 4;
+
         girlAnimator.SetBool("crouch",true);
-       // this.characterProperty.position = new Vector3(this.characterProperty.position.x, crouchRatio, this.characterProperty.position.z);
+        //box_collider.transform.localScale = new Vector3(1,1,1);
+        //this.characterProperty.position = new Vector3(this.characterProperty.position.x, crouchRatio, this.characterProperty.position.z);
     }
 
     // Default settings
