@@ -560,6 +560,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146528212}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &150085902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: f97c1fe3ea5dc7641adb6d91427a5c77,
+    type: 3}
+  m_PrefabInstance: {fileID: 1399135124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &150085903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150085902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.40351462, y: 1.0295544, z: 0.40726456}
+  m_Center: {x: 0.0024248364, y: 0.5123158, z: -0.052183356}
 --- !u!1 &178984767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,7 +4561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: f97c1fe3ea5dc7641adb6d91427a5c77, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.4611
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: f97c1fe3ea5dc7641adb6d91427a5c77, type: 3}
       propertyPath: m_LocalScale.z
@@ -5913,7 +5932,6 @@ GameObject:
   - component: {fileID: 1893866917}
   - component: {fileID: 1893866916}
   - component: {fileID: 1893866915}
-  - component: {fileID: 1893866914}
   - component: {fileID: 1893866913}
   - component: {fileID: 1893866912}
   - component: {fileID: 1893866918}
@@ -5944,6 +5962,7 @@ MonoBehaviour:
   characterHeight: 2.5
   characterWidth: 1
   girlAnimator: {fileID: 974017517}
+  box_collider: {fileID: 0}
   isGrounded: 0
 --- !u!54 &1893866913
 Rigidbody:
@@ -5961,19 +5980,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &1893866914
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893866911}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1893866915
 MeshRenderer:
   m_ObjectHideFlags: 0
