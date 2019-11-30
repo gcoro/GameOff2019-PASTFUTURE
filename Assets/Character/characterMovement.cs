@@ -31,12 +31,15 @@ public class characterMovement : MonoBehaviour
         //    this.moveBackward();
         if(this.onEnterJumpKeys())
             this.jump();
-        if(this.onEnterCrouchKeys())
+        if(this.onEnterCrouchKeys()){
             this.crouch();
+	        box_collider.transform.localScale = new Vector3(1,0.5F,1);
+	        box_collider.transform.localPosition = new Vector3(0,-0.25F,0);
+        }
         else {
         	girlAnimator.SetBool("crouch",false);
-	        this.characterProperty.localScale = new Vector3(1,2.5F,1);
-	        //box_collider
+	        box_collider.transform.localScale = new Vector3(1,1,1);
+	        box_collider.transform.localPosition = new Vector3(0,0,0);
         }
 
         if(isGrounded == false)
