@@ -47,17 +47,20 @@ public class movimento_casuale : MonoBehaviour
 
     void swapDetected()
     {
+        bool isPrimaryWorldReurn = false;
         foreach (Transform child in transform)
         {
             foreach (Transform childChild in child)
             {
                 childChild.gameObject.SetActive(!childChild.gameObject.active);
                 if (childChild.gameObject.active)
-                {
-                    InvokeRepeating("blinkObject", 0, 0.05f);
-                    StartCoroutine(AwaitCollisionRestore(true));
-                }
+                    isPrimaryWorldReurn = true;
             }
+        }
+        if (isPrimaryWorldReurn)
+        {
+            StartCoroutine(AwaitCollisionRestore(true));
+            InvokeRepeating("blinkObject", 0.1f, 0.05f);
         }
 
     }
@@ -84,6 +87,7 @@ public class movimento_casuale : MonoBehaviour
         {
             foreach (Transform childChild in child)
             {
+                if (child.GetComponent<Renderer>().isVisible)
                 childChild.gameObject.SetActive(!childChild.gameObject.active);
             }
         }
