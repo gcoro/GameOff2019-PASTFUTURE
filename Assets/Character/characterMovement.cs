@@ -105,4 +105,8 @@ public class characterMovement : MonoBehaviour
     private void defaultCharacterSize(){
         this.characterProperty.localScale = new Vector3(this.characterWidth,this.characterHeight,1);
     }
+
+    public void collisionDetected(){
+    	girlAnimator.SetBool("dead",true);
+    }
 }
