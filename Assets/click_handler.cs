@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-
-public class click_handler : MonoBehaviour
+public class click_handler : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,11 @@ public class click_handler : MonoBehaviour
     void OnMouseDown()
     {
         // this object was clicked - do something
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
         SceneManager.LoadScene("MainScene");
     }
 }

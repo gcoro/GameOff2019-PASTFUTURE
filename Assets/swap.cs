@@ -55,7 +55,6 @@ public class swap : MonoBehaviour
 
     public void collisionDetected()
     {
-        Debug.Log("Dead swap");
-        isDead = true;
+            isDead = true;
     }
 }

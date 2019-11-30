@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class movimento_casuale : MonoBehaviour
 {
-    public GameObject replacementPlatform;
     private UnityEngine.Transform lastVisibleChildren;
+    private float gracePeriod = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +46,39 @@ public class movimento_casuale : MonoBehaviour
     }
 
     void swapDetected()
+    {
+        foreach (Transform child in transform)
+        {
+            foreach (Transform childChild in child)
+            {
+                childChild.gameObject.SetActive(!childChild.gameObject.active);
+                if (childChild.gameObject.active)
+                {
+                    InvokeRepeating("blinkObject", 0, 0.05f);
+                    StartCoroutine(AwaitCollisionRestore(true));
+                }
+            }
+        }
+
+    }
+
+    IEnumerator AwaitCollisionRestore(bool finalState)
+    {
+        yield return new WaitForSeconds(gracePeriod);
+        CancelInvoke("blinkObject");
+        foreach (Transform child in transform)
+        {
+            foreach (Transform childChild in child)
+            {
+                childChild.gameObject.SetActive(finalState);
+            }
+        }
+    }
+
+
+
+
+    void blinkObject()
     {
         foreach (Transform child in transform)
         {

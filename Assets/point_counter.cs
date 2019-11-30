@@ -1,27 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class movement : MonoBehaviour
+
+public class point_counter : MonoBehaviour
 {
-    public float speed = 0.5f;
-    private bool isDead = false;
-
+    public Text txt;
+    public string settedPoints = "0";
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
-            return;
-        transform.position = transform.position + new Vector3(speed, 0, 0);//*time.deltatime
+        txt.text = "Punteggio: " + settedPoints;
     }
 
     public void collisionDetected()
     {
-        isDead = true;
+        settedPoints = Time.time.ToString().Split(',')[0];
     }
+
 }

@@ -52,7 +52,6 @@ public class bg_movement : MonoBehaviour
 
     public void collisionDetected()
     {
-        Debug.Log("Dead bd_movement");
         isDead = true;
     }
 }
