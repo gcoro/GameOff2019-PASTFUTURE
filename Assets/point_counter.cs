@@ -18,7 +18,7 @@ public class point_counter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = "Punteggio: " + settedPoints;
+        txt.text = "Score: " + settedPoints;
     }
 
     public void collisionDetected()

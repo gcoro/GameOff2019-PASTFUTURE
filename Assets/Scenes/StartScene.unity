@@ -360,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: 89.1}
+  m_AnchoredPosition: {x: 166.9, y: 162.4}
   m_SizeDelta: {x: 200, y: 61.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804401078
@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a526d4ebcac36294aac4af67de4cc8b9, type: 3}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    Aiuto'
+    Help'
 --- !u!222 &804401079
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -573,7 +573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100951020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -414.333, y: -233.592, z: -7.105}
+  m_LocalPosition: {x: -799.7, y: -450.6, z: -7.105}
   m_LocalScale: {x: 4.8029137, y: 1.57, z: 1}
   m_Children:
   - {fileID: 1516864655}
@@ -705,7 +705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87.2, y: 146.7}
+  m_AnchoredPosition: {x: 168.9, y: 275.42}
   m_SizeDelta: {x: 200, y: 61.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516864656
@@ -728,7 +728,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a526d4ebcac36294aac4af67de4cc8b9, type: 3}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    Inizia'
+    Start'
 --- !u!222 &1516864657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018847250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -414.3, y: -235.5, z: -7.105}
+  m_LocalPosition: {x: -799.6, y: -452.7, z: -7.105}
   m_LocalScale: {x: 4.871109, y: 1.57, z: 1}
   m_Children:
   - {fileID: 804401077}
