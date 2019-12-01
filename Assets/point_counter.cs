@@ -8,6 +8,7 @@ public class point_counter : MonoBehaviour
 {
     public Text txt;
     public string settedPoints = "0";
+    private float baseNumber = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,6 @@ public class point_counter : MonoBehaviour
 
     public void collisionDetected()
     {
-        settedPoints = Time.time.ToString().Split(',')[0];
+        settedPoints = Time.timeSinceLevelLoad.ToString().Split(',')[0];
     }
-
 }
