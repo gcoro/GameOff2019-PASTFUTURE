@@ -23,7 +23,7 @@ public class timer : MonoBehaviour
     {
         if (isDead)
             return;
-        if (Input.GetKeyDown("e") && ((startTime + duration) < Time.time || startTime == 0) )
+        if ((Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Space)) && ((startTime + duration) < Time.time || startTime == 0) )
         {
             startTime = Time.time;
             slider.value = 1;

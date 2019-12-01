@@ -24,7 +24,7 @@ public class swap : MonoBehaviour
     {
         if (this.lastTime != 0 && ((isKeyPressed && Time.time - lastTime < delay)|| (!isKeyPressed &&  Time.time - lastTime < normalWorldDelay)) || isDead)
             return;
-        if (!isKeyPressed && Input.GetKeyDown("e"))
+        if (!isKeyPressed && (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Space)))
         {
             if (gameObject.name.Contains("_alternative"))
             {
