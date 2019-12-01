@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class timer : MonoBehaviour
 {
     public float startTime = 0;
-    public float duration = 5;
+    public float duration = 15f;
     private bool isDead = false;
 
     public Slider slider;
@@ -41,7 +41,6 @@ public class timer : MonoBehaviour
 
     public void collisionDetected()
     {
-        Debug.Log("Dead swap");
         isDead = true;
     }
 }

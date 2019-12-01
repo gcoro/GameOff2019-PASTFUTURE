@@ -8,7 +8,8 @@ public class swap : MonoBehaviour
 
     private bool isKeyPressed = false;
     private float lastTime = 0;
-    private float delay = 2f;
+    private float delay = 4f;
+    private float normalWorldDelay = 8f;
     private bool isDead = false;
     public UnityEvent swapHappened = new UnityEvent();
 
@@ -21,9 +22,9 @@ public class swap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.lastTime != 0 && Time.time - this.lastTime < delay || isDead)
+        if (this.lastTime != 0 && ((isKeyPressed && Time.time - lastTime < delay)|| (!isKeyPressed &&  Time.time - lastTime < normalWorldDelay)) || isDead)
             return;
-        if (!this.isKeyPressed && Input.GetKeyDown("e"))
+        if (!isKeyPressed && Input.GetKeyDown("e"))
         {
             if (gameObject.name.Contains("_alternative"))
             {

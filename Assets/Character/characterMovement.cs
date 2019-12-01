@@ -16,6 +16,8 @@ public class characterMovement : MonoBehaviour
     public Animator girlAnimator;
     public GameObject box_collider;
 
+    public AudioSource backgroundMusic;
+
     public bool isGrounded;
     // Start is called before the first frame update
     void Start(){
@@ -24,6 +26,12 @@ public class characterMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate(){
+        if (girlAnimator.GetBool("dead"))
+        {
+            if (this.isGrounded)
+            movementDirection.isKinematic = true;
+            return;
+        }
         this.defaultCharacterSize();
         //if(this.onEnterForwardKeys())
         //    this.moveForward();
@@ -108,5 +116,6 @@ public class characterMovement : MonoBehaviour
 
     public void collisionDetected(){
     	girlAnimator.SetBool("dead",true);
+        backgroundMusic.Stop();
     }
 }

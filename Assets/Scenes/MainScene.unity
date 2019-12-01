@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
-  duration: 4
+  duration: 12
   slider: {fileID: 269421484}
 --- !u!114 &269421484
 MonoBehaviour:
@@ -7204,6 +7204,7 @@ MonoBehaviour:
   characterWidth: 1
   girlAnimator: {fileID: 974017517}
   box_collider: {fileID: 716339070}
+  backgroundMusic: {fileID: 150085904}
   isGrounded: 0
 --- !u!54 &1893866913
 Rigidbody:
