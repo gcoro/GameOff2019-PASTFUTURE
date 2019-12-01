@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class movimento_casuale : MonoBehaviour
 {
+	public GameObject initial_platform_forest;
+    
     private UnityEngine.Transform lastVisibleChildren;
     private float gracePeriod = 1;
     // Start is called before the first frame update
@@ -52,6 +54,7 @@ public class movimento_casuale : MonoBehaviour
         {
             foreach (Transform childChild in child)
             {
+
                 childChild.gameObject.SetActive(!childChild.gameObject.active);
                 if (childChild.gameObject.active)
                     isPrimaryWorldReurn = true;
